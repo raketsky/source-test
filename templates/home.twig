@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="theme-color" content="#563d7c">
+    <title>{% block title %}Source Downloader{% endblock %}</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/floating-labels.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="form-signin">
+    <div class="hero-unit text-center">
+        <h1 class="text-uppercase">Source Downloader</h1>
+        <p>Download source below in CSV format or choose link to fetch in JSON</p>
+        <div class="row">
+            {% for action in actions %}
+            <div class="col-8 offset-2">
+                <a href="{{action.link}}" class="btn btn-primary btn-lg btn-block" title="{{action.title}}">
+                    <i class="fa fa-{{action.icon}}"></i>
+                    <strong>{{action.label}}</strong>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="mt-5 text-center">
+        <h3 class="text-uppercase">Randomly generated links</h3>
+        {% for link in links %}
+            <div>
+                <a href="{{link.link}}">{{link.title}}</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
